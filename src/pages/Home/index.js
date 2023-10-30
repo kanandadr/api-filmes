@@ -1,50 +1,28 @@
 import { Container, MovieList, Movie } from "./styles";
-
-
+import { useState, useEffect } from "react";
+import ApiKey from "./constants/api_key";
 function Home() {
+    const [movies, setMovies] = useState([])
+    const fetchMovies = async () => {
 
-    const movies = [
-        {
-            Id:1,
-            titile: 'Spaider Man',
-            Image_url: "https://tse4.mm.bing.net/th?id=OIP.M73I1Mw0rSxA7f9PCdGJpAHaLH&pid=Api&P=0&h=180"
+        const url = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${ApiKey}`;
+        const options = {
+            method: 'GET',
+        };
 
-        },
-        {
-            id:2,
-            titile: 'Spaider Man',
-            Image_url: "https://tse4.mm.bing.net/th?id=OIP.M73I1Mw0rSxA7f9PCdGJpAHaLH&pid=Api&P=0&h=180"
-        
+        fetch(url, options)
+            .then(res => res.json())
+            .then(json => setMovies(json.results))
+            .catch(err => console.error('error:' + err));
 
-        },
-        {
-            id:3,
-            titile: 'Spaider Man',
-            Image_url: "https://tse4.mm.bing.net/th?id=OIP.M73I1Mw0rSxA7f9PCdGJpAHaLH&pid=Api&P=0&h=180"
-    
+    }
+    useEffect(() => {
+        fetchMovies()
+    }, [])
 
-        },
-        {
-            Id:1,
-            titile: 'Spaider Man',
-            Image_url: "https://tse4.mm.bing.net/th?id=OIP.M73I1Mw0rSxA7f9PCdGJpAHaLH&pid=Api&P=0&h=180"
 
-        },
-        {
-            id:2,
-            titile: 'Spaider Man',
-            Image_url: "https://tse4.mm.bing.net/th?id=OIP.M73I1Mw0rSxA7f9PCdGJpAHaLH&pid=Api&P=0&h=180"
-        
 
-        },
-        {
-            id:3,
-            titile: 'Spaider Man',
-            Image_url: "https://tse4.mm.bing.net/th?id=OIP.M73I1Mw0rSxA7f9PCdGJpAHaLH&pid=Api&P=0&h=180"
-    
 
-        }
-    ]
 
     return (
 
@@ -54,8 +32,8 @@ function Home() {
 
                 {movies.map(movie => {
                     return (
-                        <Movie key ={movie.id}>
-                            <a href="https://google.com.br"><img src={movie.Image_url} alt="movie.title" /></a>
+                        <Movie key={movie.id}>
+                            <a href="https://google.com.br"><img src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.backdrop_path}`} alt="movie.title" /></a>
                             <span>{movie.titile}</span>
 
                         </Movie>
