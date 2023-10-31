@@ -22,8 +22,6 @@ function Home() {
 
 
 
-
-
     return (
 
         <Container>
@@ -34,7 +32,7 @@ function Home() {
                     return (
                         <Movie key={movie.id}>
                             <a href="https://google.com.br"><img src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.backdrop_path}`} alt="movie.title" /></a>
-                            <span>{movie.titile}</span>
+                            <span>{movie.title}</span>
 
                         </Movie>
 

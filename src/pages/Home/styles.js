@@ -6,12 +6,10 @@ export const Container = styled.div`
     text-align: center;
     margin: 4rem 0;
    }
-
   
 `
-
 export const MovieList = styled.ul`
-   list-style:none;
+    list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
     column-gap: 3rem;
@@ -32,6 +30,7 @@ export const Movie = styled.li`
   span {
    font-weight: bold;
    font-size: 120%;
+   text-aling: center;
   }
 
   a {
