@@ -1,6 +1,8 @@
 import { Container, MovieList, Movie } from "./styles";
 import { useState, useEffect } from "react";
 import ApiKey from "./constants/api_key";
+import { Link } from "react-router-dom";
+
 function Home() {
     const [movies, setMovies] = useState([])
     const fetchMovies = async () => {
@@ -31,7 +33,10 @@ function Home() {
                 {movies.map(movie => {
                     return (
                         <Movie key={movie.id}>
-                            <a href="https://google.com.br"><img src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.backdrop_path}`} alt="movie.title" /></a>
+
+                             <Link to={`/detalis/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.backdrop_path}`} alt="movie.title" /></Link>
+
+
                             <span>{movie.title}</span>
 
                         </Movie>
