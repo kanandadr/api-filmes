@@ -27,14 +27,14 @@ function Home() {
     return (
 
         <Container>
-            <h1>Movies</h1>
+            <h1>KFLIX</h1>
             <MovieList>
 
                 {movies.map(movie => {
                     return (
                         <Movie key={movie.id}>
 
-                             <Link to={`/detalis/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.backdrop_path}`} alt="movie.title" /></Link>
+                             <Link to={`/details/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.backdrop_path}`} alt="movie.title" /></Link>
 
 
                             <span>{movie.title}</span>

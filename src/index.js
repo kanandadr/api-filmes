@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route, } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './global.css';
 import Home from './pages/Home';
-import Detalis from './pages/Detalis';
+import Details from './pages/Home/Details';
 
 
 
@@ -12,8 +12,7 @@ ReactDOM.render(
   <BrowserRouter>
   <Routes>
     <Route path="/" element={<Home/>}/>
-    <Route path="/detalis/:id" element={<Detalis/>}/>
-
+    <Route path="details/:id" element={<Details/>}/>
   </Routes>
   
   </BrowserRouter>,
